@@ -5,20 +5,20 @@ function MovieAdd({ajout}) {
     const[titles,setTitles]=useState('')
     const[descriptions,setDescriptions]=useState('');
     const[imageSrcs,setImageSrcs]=useState('')
-    const[rates,setRates]=useState()
+    const[rates,setRates]=useState(null)
     const[genres,setGenres]=useState('')
-    
+
+    //test sur title
     const handleInputTitle = (e) => {
       const TitleValue = e.target.value;
-      // Utilisation d'une expression régulière pour autoriser uniquement les lettres et les chiffres
       const synb = TitleValue.replace(/[^a-zA-Z0-9]/g, '');
-  
       setTitles(synb );
     };
+    //test sur rates: pour accepts only numbers et '.'
     const handleChange = (event) => {
       const { value } = event.target;
-      const regex = /^[0-9\b]+$/; // Accepts only numbers
-      if (regex.test(value)) {
+      const num = /[0-9.\b]+$/; 
+      if (num.test(value)) {
         setRates(value);
       }}
     const add=()=>{
