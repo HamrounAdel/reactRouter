@@ -1,9 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import data from './data'
-function Trailer() {
+
+function Trailer({movie}) {
     const {id}=useParams()
-    const films=data.find((el)=>el.id===id)
+    const films=movie.find((el)=>el.id===id)
     console.log('trai',films)
     if (!films) {
       return <div>Chargement...</div>; // Ou tout autre affichage de chargement ou d'erreur approprié

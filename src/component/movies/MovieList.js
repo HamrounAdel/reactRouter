@@ -6,7 +6,7 @@ function MovieList({movie,inputTitle,inputRate,handelDelet,handelCheck}) {
     <div className='grid-container'>
       {movie.filter((el)=> (el.title.toLowerCase().includes(inputTitle.toLowerCase().trim()))
       && el.rate>=inputRate)
-      .map((el)=>  <MovieCard el={el} handelCheck={handelCheck} handelDelet={handelDelet}  />)}
+      .map((el)=>  <MovieCard  el={el} handelCheck={handelCheck} handelDelet={handelDelet}  />)}
     
     </div>
   )

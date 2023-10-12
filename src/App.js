@@ -51,7 +51,7 @@ setMovie(movie.filter((el)=> el.id!==id))
       <Route path='/' element={<Home/>}/>
       <Route  path='/movielist' element={<MovieList  handelDelet={handelDelet} handelCheck={handelCheck} inputTitle={inputTitle} inputRate={inputRate} movie={movie}/>}/>
       <Route path='/add'element={<MovieAdd  ajout={ajout}/>}/>
-      <Route path='/trailer/:id' element={<Trailer/>}/>
+      <Route path='/trailer/:id' element={<Trailer movie={movie}/>}/>
       <Route path='/profile' element={<Profil/>}/>
     </Routes>
     <div ></div>  
