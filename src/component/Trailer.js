@@ -1,13 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-
+    
 function Trailer({movie}) {
     const {id}=useParams()
     const films=movie.find((el)=>el.id===id)
     console.log('trai',films)
     if (!films) {
-      return <div>Chargement...</div>; // Ou tout autre affichage de chargement ou d'erreur approprié
-    }
+      return <div>Chargement...</div>; }
   return (
     <div style={{display:'flex',justifyContent:'space-between'}}> 
     <div>
@@ -18,9 +17,12 @@ function Trailer({movie}) {
       
       Date de sortie:{films.sortie}<br/>
         Genre:{films.genre}<br/>
-        Description:{films.description}<br/><br/>
-        <button style={{ borderRadius: '10px',backgroundColor: 'rgb(21, 17, 224)',
-      height: '2.5rem'}} >watch film</button>
+        Description:{films.description}<br/>
+        
+      <video controls width="50%" height="60%">
+       <source src= {films.videoUrl} type="video/mp4"/>
+      </video> 
+  
         
         </div>
     </div>

@@ -7,6 +7,7 @@ function MovieAdd({ajout}) {
     const[imageSrcs,setImageSrcs]=useState('')
     const[rates,setRates]=useState(null)
     const[genres,setGenres]=useState('')
+    const[videoUrls,setVideoUrls]=useState('')
 
     //test sur title
     const handleInputTitle = (e) => {
@@ -23,7 +24,7 @@ function MovieAdd({ajout}) {
       }
     const add=()=>{
       if(titles.length>0 && genres.length>0 && descriptions.length>0 
-        && imageSrcs.length>0 && rates.length >0  ) 
+        && imageSrcs.length>0 && rates.length >0 && videoUrls.length>0 ) 
        {
       ajout({
           id:uuidv4(),
@@ -34,9 +35,10 @@ function MovieAdd({ajout}) {
           rate:rates,
           sortie:2023,
           imageSrc:imageSrcs,
+          videoUrl:videoUrls
   
       },setTitles(''),setDescriptions(''),setImageSrcs(''),
-      setRates(''),setGenres('')) }
+      setRates(''),setGenres(''),setVideoUrls('') )}
       else{alert('Champs obligatoires')}
 }
   return (
@@ -68,12 +70,19 @@ function MovieAdd({ajout}) {
       onChange={handleChange}/>
   </form ><br/>
 
+ 
+  <form style={{display:'flex',justifyContent:'space-between'}}>
+  <p>VideoUrl:</p>
+  <input  placeholder='entre her.... ' value={videoUrls}
+      onChange={(e)=>setVideoUrls(e.target.value)}/>
+  </form ><br/>
+
   <form style={{display:'flex',justifyContent:'space-between'}}>
   <p>Genre:</p>
   <input  placeholder='entre her.... ' value={genres}
       onChange={(e)=>setGenres(e.target.value)}/>
   </form ><br/>
-  <button className='btn' onClick={()=>add()}>Add</button>
+  <button className='btn' onClick={()=>add()} >Add</button>
   
   </div>
     </>
