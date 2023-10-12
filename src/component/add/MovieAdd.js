@@ -17,10 +17,10 @@ function MovieAdd({ajout}) {
     //test sur rates: pour accepts only numbers et '.'
     const handleChange = (event) => {
       const { value } = event.target;
-      const num = /[0-9.\b]+$/; 
-      if (num.test(value)) {
-        setRates(value);
-      }}
+
+      const num = value.replace(/[^0-9.]/g, '');
+        setRates(num);
+      }
     const add=()=>{
       if(titles.length>0 && genres.length>0 && descriptions.length>0 
         && imageSrcs.length>0 && rates.length >0  ) 
