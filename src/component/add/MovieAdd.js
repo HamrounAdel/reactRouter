@@ -8,7 +8,13 @@ function MovieAdd({ajout}) {
     const[rates,setRates]=useState()
     const[genres,setGenres]=useState('')
     
-
+    const handleInputTitle = (e) => {
+      const TitleValue = e.target.value;
+      // Utilisation d'une expression régulière pour autoriser uniquement les lettres et les chiffres
+      const synb = TitleValue.replace(/[^a-zA-Z0-9]/g, '');
+  
+      setTitles(synb );
+    };
     const handleChange = (event) => {
       const { value } = event.target;
       const regex = /^[0-9\b]+$/; // Accepts only numbers
@@ -41,7 +47,7 @@ function MovieAdd({ajout}) {
   <form style={{display:'flex',justifyContent:'space-between'}}>
   <p>Title:</p>
   <input  placeholder='entre titre' value={titles}
-      onChange={(e)=>setTitles(e.target.value)}/>
+      onChange={handleInputTitle}/>
   </form ><br/>
 
   <form style={{display:'flex',justifyContent:'space-between'}}>
