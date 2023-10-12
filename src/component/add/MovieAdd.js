@@ -5,8 +5,16 @@ function MovieAdd({ajout}) {
     const[titles,setTitles]=useState('')
     const[descriptions,setDescriptions]=useState('');
     const[imageSrcs,setImageSrcs]=useState('')
-    const[rates,setRates]=useState('')
+    const[rates,setRates]=useState()
     const[genres,setGenres]=useState('')
+    
+
+    const handleChange = (event) => {
+      const { value } = event.target;
+      const regex = /^[0-9\b]+$/; // Accepts only numbers
+      if (regex.test(value)) {
+        setRates(value);
+      }}
     const add=()=>{
       if(titles.length>0 && genres.length>0 && descriptions.length>0 
         && imageSrcs.length>0 && rates.length >0  ) 
@@ -23,7 +31,7 @@ function MovieAdd({ajout}) {
   
       },setTitles(''),setDescriptions(''),setImageSrcs(''),
       setRates(''),setGenres('')) }
-      else{alert('champ obligatoir')}
+      else{alert('Champs obligatoires')}
 }
   return (
   <>
@@ -51,7 +59,7 @@ function MovieAdd({ajout}) {
   <form style={{display:'flex',justifyContent:'space-between'}}>
   <p>Rate:</p>
   <input  placeholder='entre her.... ' value={rates}
-      onChange={(e)=>setRates(e.target.value)}/>
+      onChange={handleChange}/>
   </form ><br/>
 
   <form style={{display:'flex',justifyContent:'space-between'}}>
